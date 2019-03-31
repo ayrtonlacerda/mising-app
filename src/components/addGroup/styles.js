@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderBottomWidth: 1,
     borderBottomColor: 'black',
+    fontSize: 16,
   },
   viewFormButton: {
     flexDirection: 'row',
@@ -75,9 +76,11 @@ const styles = StyleSheet.create({
   },
   textFormButton: {
     fontFamily: 'Montserrat-Medium',
-    fontSize: 16,
+    fontSize: 18,
     color: 'black',
     margin: 10,
+    width: 10,
+    textAlign: 'center',
   },
   button: {
     width: 150,

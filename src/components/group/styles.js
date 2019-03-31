@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
   number: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 20,
-    color: 'rgba(0, 0, 0, 0.35)'
   },
   name: {
     fontFamily: 'Montserrat-Regular',

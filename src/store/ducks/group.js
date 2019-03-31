@@ -11,7 +11,8 @@ const INITIAL_STATE = {
 export default function groupState(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.ADD_DISCIPLINA:
-      return {...state,
+      return {
+        ...state,
         group: [...state.group, {
           id: action.data.id,
           name: action.data.name,
@@ -54,7 +55,6 @@ item.id: item.id,
         ...item,
         faltas: item.faltas + 1,
       }
-      console.tron.log(['item', item])
     }
   )
 */
@@ -84,8 +84,6 @@ const addFaltaDisciplina = (id, state) => {
       item.faltas = item.faltas + 1;
     }
   })
-
-  console.tron.log(['group', group])
   return group;
 }
 
@@ -93,10 +91,10 @@ const removeDisciplina = (id, state) => {
   var group = state.group;
   let count = 0;
   group.map(item => {
-      if (item.id === id) {
-        group.splice(count, 1);
-      }
-      count += 1;
+    if (item.id === id) {
+      group.splice(count, 1);
+    }
+    count += 1;
   });
   return group;
 }

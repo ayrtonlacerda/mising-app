@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Modal, TouchableOpacity, TextInput } from 'react-native';
-import Icons from 'react-native-vector-icons/Entypo';
+import Icons from 'react-native-vector-icons/Ionicons';
 
 import styles from './styles';
 
@@ -19,10 +19,10 @@ class AddGroup extends Component {
     const { qtd, name } = this.state;
     let totalFaltas = (qtd * 2) - 1;
     let id = Math.random();
-
-    addDisciplina({ qtd, name, totalFaltas, id })
-    onClose()
-
+    if (qtd > 1 && name !== '') {
+      addDisciplina({ qtd, name, totalFaltas, id })
+      onClose()
+    }
   }
 
   addQtd = () => {
@@ -40,7 +40,6 @@ class AddGroup extends Component {
   render() {
     const { visible, onClose } = this.props;
     const { qtd } = this.state;
-    // console.tron.log([this.props, this.state])
     return (
       <Modal
         animationType="slide"
@@ -51,7 +50,7 @@ class AddGroup extends Component {
           <View style={styles.viewAdd}>
             <View style={styles.viewAdd2}>
               <TouchableOpacity style={styles.buttonTouch} onPress={() => onClose()}>
-                <View style={styles.buttonT}/>
+                <View style={styles.buttonT} />
               </TouchableOpacity>
               <Text style={styles.title}>Adicionar Disciplina</Text>
               <View style={styles.viewForm}>
@@ -67,11 +66,11 @@ class AddGroup extends Component {
                 <Text style={styles.textForm}>Quantidade de creditos</Text>
                 <View style={styles.viewFormButton}>
                   <TouchableOpacity style={styles.buttonPlus} onPress={() => this.subQtd()}>
-                    <Icons name="minus" size={18} color="#FFF" />
+                    <Icons name="ios-remove" size={18} color="#FFF" />
                   </TouchableOpacity>
                   <Text style={styles.textFormButton}>{qtd}</Text>
                   <TouchableOpacity style={styles.buttonPlus} onPress={() => this.addQtd()}>
-                    <Icons name="plus" size={18} color="#FFF" />
+                    <Icons name="ios-add" size={18} color="#FFF" />
                   </TouchableOpacity>
                 </View>
               </View>
